@@ -10,7 +10,7 @@ RUN npm run build
 
 FROM ruby:3.4-slim
 WORKDIR /app
-ENV RACK_ENV=production BUNDLE_WITHOUT=development
+ENV BUNDLE_WITHOUT=development
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 COPY app.rb config.ru ./

@@ -1,6 +1,10 @@
-# The default instance size (shared-s, 64Mi) is for Go and static sites;
-# a Ruby process wants shared-m.
+# Sinatra 4 permits only localhost in development and every host in
+# production (Rack::Protection::HostAuthorization), so the environment
+# must be set: plain variables like this one live in shpyrd.yaml,
+# secrets go through `shpyrd secrets set`.
 project: example-sinatra
+env:
+  RACK_ENV: production
 processes:
   web:
     size: shared-m

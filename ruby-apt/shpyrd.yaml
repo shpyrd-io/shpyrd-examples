@@ -1,5 +1,7 @@
-# System packages come from the Aptfile; nothing to declare here.
+# System packages come from the Aptfile; RACK_ENV as in the sinatra example.
 project: example-ruby-apt
+env:
+  RACK_ENV: production
 processes:
   web:
     size: shared-m
