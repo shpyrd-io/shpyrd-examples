@@ -1,5 +1,7 @@
-# Java: the Java buildpack builds with Maven and runs the jar; the JVM
-# wants more memory than the default size.
+# Java: the Java buildpack builds with Maven and runs the jar. The JVM
+# wants more memory than the default size, and Paketo's memory calculator
+# sizes the heap from the instance memory and the thread count: 512Mi
+# with its default of 250 threads does not add up, so the count is set.
 project: example-java
 processes:
   web:
@@ -7,3 +9,5 @@ processes:
 build:
   env:
     BP_JVM_VERSION: "21"
+env:
+  BPL_JVM_THREAD_COUNT: "50"

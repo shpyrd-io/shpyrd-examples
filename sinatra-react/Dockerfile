@@ -12,7 +12,11 @@ FROM ruby:3.4-slim
 WORKDIR /app
 ENV BUNDLE_WITHOUT=development
 COPY Gemfile Gemfile.lock ./
-RUN bundle install
+# puma and nio4r compile native extensions: the compiler is needed for the
+# install and removed afterwards.
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential \
+    && bundle install \
+    && apt-get purge -y --auto-remove build-essential && rm -rf /var/lib/apt/lists/*
 COPY app.rb config.ru ./
 COPY --from=frontend /src/frontend/dist ./public
 # shpyrd runs images as a numeric non-root user.
