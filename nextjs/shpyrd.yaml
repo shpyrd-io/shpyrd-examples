@@ -1,9 +1,13 @@
 # Next.js: the Node buildpack installs, runs `next build`, and starts with
-# the package.json "start" script; PORT comes from the platform.
+# the package.json "start" script; PORT comes from the platform. NODE_ENV
+# is pinned for the build: the buildpack's install step runs with
+# "development" and next build then prerenders with mismatched React
+# builds (the "<Html> should not be imported" error).
 project: example-nextjs
 build:
   env:
     BP_NODE_RUN_SCRIPTS: build
+    NODE_ENV: production
 processes:
   web:
     size: shared-m

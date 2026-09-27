@@ -1,9 +1,11 @@
-# A React app built with Vite: the Node buildpack runs `npm run build`, the
-# web-servers buildpack serves dist/ with nginx, single-page routing on.
-# No "start" script in package.json: that is what makes detection pick the
-# static path instead of running node.
+# A React app built with Vite, served as static files. The platform's
+# detection would stop at the Node buildpack (package.json) and produce an
+# image with nothing to run, so the build is composed (RFC-0065): only the
+# web-servers buildpack, whose own order builds with Node (`npm run build`)
+# and serves dist/ with nginx, single-page routing on.
 project: example-react
 build:
+  buildpacks: [web-servers]
   env:
     BP_NODE_RUN_SCRIPTS: build
     BP_WEB_SERVER: nginx

@@ -1,7 +1,0 @@
-{
-  "name": "shpyrd/example-php",
-  "description": "A PHP page on shpyrd",
-  "require": {
-    "php": ">=8.2"
-  }
-}
