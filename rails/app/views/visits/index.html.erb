@@ -1,0 +1,9 @@
+<h1>Rails <%= Rails::VERSION::STRING %> on shpyrd</h1>
+<p>Visit number <strong><%= @count %></strong>. Stored in the attached PostgreSQL.</p>
+<p>Revision <code><%= @revision || "unknown" %></code>, project <code><%= ENV["SHPYRD_PROJECT"] %></code>, workspace <code><%= ENV["SHPYRD_WORKSPACE"] %></code>.</p>
+<h2>Last visitors</h2>
+<ul>
+<% @last.each do |v| %>
+  <li><code><%= v.visitor %></code> at <%= v.created_at.utc.iso8601 %></li>
+<% end %>
+</ul>

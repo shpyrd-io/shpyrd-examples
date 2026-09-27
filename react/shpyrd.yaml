@@ -1,0 +1,14 @@
+# A React app built with Vite: the Node buildpack runs `npm run build`, the
+# web-servers buildpack serves dist/ with nginx, single-page routing on.
+# No "start" script in package.json: that is what makes detection pick the
+# static path instead of running node.
+project: example-react
+build:
+  env:
+    BP_NODE_RUN_SCRIPTS: build
+    BP_WEB_SERVER: nginx
+    BP_WEB_SERVER_ROOT: dist
+    BP_WEB_SERVER_ENABLE_PUSH_STATE: "true"
+processes:
+  web:
+    size: shared-xs

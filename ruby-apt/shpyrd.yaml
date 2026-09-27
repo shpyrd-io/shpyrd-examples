@@ -1,0 +1,5 @@
+# System packages come from the Aptfile; nothing to declare here.
+project: example-ruby-apt
+processes:
+  web:
+    size: shared-m

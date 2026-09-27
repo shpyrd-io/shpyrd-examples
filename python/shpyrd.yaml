@@ -1,0 +1,4 @@
+project: example-python
+processes:
+  web:
+    size: shared-m

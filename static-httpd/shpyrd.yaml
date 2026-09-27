@@ -1,0 +1,8 @@
+project: example-static-httpd
+build:
+  env:
+    BP_WEB_SERVER: httpd
+    BP_WEB_SERVER_ROOT: public
+processes:
+  web:
+    size: shared-xs

@@ -1,0 +1,4 @@
+# The release process type runs before every new release rolls out (RFC-0066):
+# here it creates the database on the first deploy and migrates it afterwards.
+release: bundle exec rails db:prepare
+web: bundle exec puma -C config/puma.rb

@@ -1,0 +1,9 @@
+# Java: the Java buildpack builds with Maven and runs the jar; the JVM
+# wants more memory than the default size.
+project: example-java
+processes:
+  web:
+    size: shared-l
+build:
+  env:
+    BP_JVM_VERSION: "21"

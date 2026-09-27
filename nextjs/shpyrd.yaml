@@ -1,0 +1,9 @@
+# Next.js: the Node buildpack installs, runs `next build`, and starts with
+# the package.json "start" script; PORT comes from the platform.
+project: example-nextjs
+build:
+  env:
+    BP_NODE_RUN_SCRIPTS: build
+processes:
+  web:
+    size: shared-m

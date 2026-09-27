@@ -1,0 +1,11 @@
+# A static site served by nginx. The Paketo web-servers buildpack needs to
+# be told which server and where the files are; without these two lines the
+# build fails detection ("No buildpack groups passed detection").
+project: example-static-nginx
+build:
+  env:
+    BP_WEB_SERVER: nginx
+    BP_WEB_SERVER_ROOT: public
+processes:
+  web:
+    size: shared-xs

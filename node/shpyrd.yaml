@@ -1,0 +1,4 @@
+project: example-node
+processes:
+  web:
+    size: shared-m

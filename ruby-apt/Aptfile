@@ -1,0 +1,4 @@
+# System packages installed into the image (RFC-0065): one per line, as
+# on Heroku. libvips for image processing through the ruby-vips gem.
+libvips42
+libglib2.0-0

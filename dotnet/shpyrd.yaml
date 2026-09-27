@@ -1,0 +1,5 @@
+# .NET: the Paketo .NET Core buildpack restores, publishes and runs the app.
+project: example-dotnet
+processes:
+  web:
+    size: shared-m

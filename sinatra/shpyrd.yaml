@@ -1,0 +1,6 @@
+# The default instance size (shared-s, 64Mi) is for Go and static sites;
+# a Ruby process wants shared-m.
+project: example-sinatra
+processes:
+  web:
+    size: shared-m

@@ -1,0 +1,6 @@
+# A Dockerfile in the directory: the build uses it (multi-stage: node, then ruby).
+project: example-sinatra-react
+processes:
+  web:
+    port: 8080
+    size: shared-m

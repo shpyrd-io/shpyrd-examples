@@ -1,0 +1,10 @@
+# PHP: the Paketo PHP buildpack with nginx in front of PHP-FPM, serving
+# public/. Add composer dependencies to composer.json as usual.
+project: example-php
+build:
+  env:
+    BP_PHP_SERVER: nginx
+    BP_PHP_WEB_DIR: public
+processes:
+  web:
+    size: shared-m
