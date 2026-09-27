@@ -1,8 +1,3 @@
 # System packages installed into the image, one per line, as on Heroku.
-# libvips for image processing through the ruby-vips gem. The libraries
-# it loads through glib and OpenMP are listed too: the build image has
-# them, the smaller run image does not, and only listed packages are
-# installed regardless.
+# libvips for image processing through the ruby-vips gem.
 libvips42
-libglib2.0-0
-libgomp1

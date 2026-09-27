@@ -1,5 +1,9 @@
-# System packages come from the Aptfile; RACK_ENV as in the sinatra example.
+# System packages come from the Aptfile. libvips pulls in dozens of
+# libraries (glib, cairo, pango, curl...): the "full" stack's run image
+# already carries the common ones, so only the rest is installed.
 project: example-ruby-apt
+build:
+  stack: full
 env:
   RACK_ENV: production
 processes:
